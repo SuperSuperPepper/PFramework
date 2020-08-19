@@ -1,0 +1,23 @@
+#golang
+
+/.vscode
+.vscode
+pkg/
+/src/github.com
+__debug_bin
+*.exe
+
+#reids
+
+Redis-x64-5.0.9
+Redis-x64-5.0.9.zip
+*.bat
+
+#python
+
+__pycache__
+
+
+# unity
+.vs
+Library/

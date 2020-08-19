@@ -1,0 +1,69 @@
+
+syntax ="proto3";
+
+package msg_register_login;
+
+// address  package
+option go_package ="msg/msg_register_login;msg_register_login";
+
+message CreateNewUserByPhoneRequest{
+    string phone =1;
+    string password =2;
+}
+// 200 ok
+// 201 phone already have
+// 202 password error
+// 203 db err
+message CreateNewUserByPhoneResponse{
+    int32 returnCode=1;
+}
+
+
+
+message LoginByPhoneRequest{
+    string phone =1;
+    string password =2;
+}
+// 200 ok
+// 201 phone err
+// 202 password err
+// 203 db err
+message LoginByPhoneResponse{
+    int32 returnCode =1;
+    string access_token =2;
+    string refresh_token =3;
+}
+
+
+message LoginByTokenRequest{
+    string access_token =1;
+}
+//200 ok
+//201 token error
+message LoginByTokenResponse{
+    int32 returnCode =1;
+}
+
+
+message LogoutRequest{
+    string access_token =1;
+}
+//200 ok
+//201 token err
+//202 redis err
+message LogoutResponse{
+    int32 returnCode =1;
+}
+
+
+message RefreshTokenRequest{
+    string refresh_token =1;
+}
+//200 ok
+//201 token expires
+message RefreshTokenResponse{
+    int32 returnCode =1;
+    string access_token =2;
+    string refresh_token =3;
+}
+
